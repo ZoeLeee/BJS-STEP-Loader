@@ -151,7 +151,7 @@ export class SolidParser {
         if (matchResult.index === 0) {
           const startIndex = matchResult[0].length;
           const ID = matchResult[0].slice(0, -1).trim();
-          if (line.includes(SolidParser.CART_POINT)) {
+          if (this.isVail(line, SolidParser.CART_POINT, startIndex)) {
             const matchRes = line.match(SolidParser.CART_POINT_REG);
             if (matchRes) {
               const points = matchRes[0]
@@ -161,7 +161,7 @@ export class SolidParser {
               vectors.push(Vector3.FromArray(points));
               this.pointMap.set(ID.trim(), Vector3.FromArray(points));
             }
-          } else if (line.includes(SolidParser.DIRECTION)) {
+          } else if (this.isVail(line, SolidParser.DIRECTION, startIndex)) {
             const matchRes = line.match(SolidParser.CART_POINT_REG);
             if (matchRes) {
               const dir = matchRes[0].trim().slice(1, -1).split(",");
@@ -175,7 +175,7 @@ export class SolidParser {
                 )
               );
             }
-          } else if (line.includes(SolidParser.VER_POINT)) {
+          } else if (this.isVail(line, SolidParser.VER_POINT, startIndex)) {
             const matchRes = line.match(SolidParser.Data_REG);
             if (matchRes) {
               const points = matchRes[0].slice(3, -2).split(",");
@@ -186,7 +186,9 @@ export class SolidParser {
                 return p;
               });
             }
-          } else if (line.includes(SolidParser.AXIS2_PLACEMENT_3D)) {
+          } else if (
+            this.isVail(line, SolidParser.AXIS2_PLACEMENT_3D, startIndex)
+          ) {
             const matchRes = line.match(SolidParser.Data_REG);
             if (matchRes) {
               const points = matchRes[0].slice(3, -2).split(",");
@@ -201,7 +203,7 @@ export class SolidParser {
                 return ps;
               });
             }
-          } else if (line.indexOf(SolidParser.PLANE) === startIndex + 1) {
+          } else if (this.isVail(line, SolidParser.PLANE, startIndex)) {
             const matchRes = line.match(SolidParser.Data_REG);
             if (matchRes) {
               const points = matchRes[0].slice(3, -2).split(",");
@@ -212,7 +214,7 @@ export class SolidParser {
                 return p;
               });
             }
-          } else if (line.includes(SolidParser.VECTOR)) {
+          } else if (this.isVail(line, SolidParser.VECTOR, startIndex)) {
             const matchRes = line.match(SolidParser.Data_REG);
             if (matchRes) {
               const points = matchRes[0].trim().slice(1, -1).split(",");
@@ -224,7 +226,7 @@ export class SolidParser {
                 return v;
               });
             }
-          } else if (line.includes(SolidParser.EDGE_CURVE)) {
+          } else if (this.isVail(line, SolidParser.EDGE_CURVE, startIndex)) {
             const matchRes = line.match(SolidParser.Data_REG);
             if (matchRes) {
               const points = matchRes[0].trim().slice(1, -1).split(",");
@@ -240,7 +242,7 @@ export class SolidParser {
                 return edge;
               });
             }
-          } else if (line.includes(SolidParser.LINE)) {
+          } else if (this.isVail(line, SolidParser.LINE, startIndex)) {
             const matchRes = line.match(SolidParser.Data_REG);
             if (matchRes) {
               const points = matchRes[0].trim().slice(1, -1).split(",");
@@ -254,7 +256,7 @@ export class SolidParser {
                 return line;
               });
             }
-          } else if (line.includes(SolidParser.ORIENTED_EDGE)) {
+          } else if (this.isVail(line, SolidParser.ORIENTED_EDGE, startIndex)) {
             const matchRes = line.match(SolidParser.Data_REG);
             if (matchRes) {
               const points = matchRes[0].trim().slice(1, -1).split(",");
@@ -268,7 +270,7 @@ export class SolidParser {
                 return edge;
               });
             }
-          } else if (line.includes(SolidParser.EDGE_LOOP)) {
+          } else if (this.isVail(line, SolidParser.EDGE_LOOP, startIndex)) {
             const matchRes = line.match(SolidParser.ID_REG);
             if (matchRes) {
               const points = matchRes[0].trim().slice(1, -3).split(",");
@@ -282,8 +284,8 @@ export class SolidParser {
               });
             }
           } else if (
-            line.includes(SolidParser.FACE_OUTER_BOUND) ||
-            line.includes(SolidParser.FACE_BOUND)
+            this.isVail(line, SolidParser.FACE_OUTER_BOUND, startIndex) ||
+            this.isVail(line, SolidParser.FACE_BOUND, startIndex)
           ) {
             const matchRes = line.match(SolidParser.Data_REG);
             if (matchRes) {
@@ -298,7 +300,7 @@ export class SolidParser {
                 return edgeloop;
               });
             }
-          } else if (line.includes(SolidParser.ADVANCED_FACE)) {
+          } else if (this.isVail(line, SolidParser.ADVANCED_FACE, startIndex)) {
             const matchRes = line.match(SolidParser.Data_REG);
             if (matchRes) {
               let str = matchRes[0].trim().slice(1, -1);
@@ -321,7 +323,7 @@ export class SolidParser {
                 return face;
               });
             }
-          } else if (line.includes(SolidParser.CLOSED_SHELL)) {
+          } else if (this.isVail(line, SolidParser.CLOSED_SHELL, startIndex)) {
             const matchRes = line.match(SolidParser.ID_REG);
             if (matchRes) {
               const list = matchRes[0].trim().slice(1, -3).split(",");
@@ -454,6 +456,8 @@ export class SolidParser {
           let nor = shell[1][2];
           console.log("nor: ", nor);
 
+          if (Math.abs(dir.z) - 1e-4 < 0) continue;
+
           const z = dir.clone();
           const x = nor.clone();
           const y = x.cross(z);
@@ -474,10 +478,11 @@ export class SolidParser {
           //   const i = uniPoints.indexOf(pt);
           //   indices.push(i + index);
           // }
-          const indexs = earcut(pos, null, 2);
+          const indexs = earcut(pos, null, 2) as number[];
           if (indexs.length === 3) {
             console.log(pos);
           }
+          indexs.reverse();
           indices.push(...indexs.map((i) => i + index));
           index += uniPoints.length;
 
@@ -544,5 +549,8 @@ export class SolidParser {
       );
     });
     pcs.buildMeshAsync();
+  }
+  private isVail(line: string, target: string, startIndex: number) {
+    return line.indexOf(target) === startIndex + 1;
   }
 }

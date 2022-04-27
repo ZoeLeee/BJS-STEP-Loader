@@ -81,15 +81,20 @@ export class StepFileLoader implements ISceneLoaderPluginAsync {
     // const babylonMeshesArray: Array<Mesh> = []; //The mesh for babylon
     // // Main function
     const solidParser = new SolidParser();
-    solidParser.parse(
-      meshesNames,
-      data,
-      scene,
-      this._assetContainer,
-      (fileName: string) => {
-        fileToLoad = fileName;
-      }
-    );
+    try {
+      solidParser.parse(
+        meshesNames,
+        data,
+        scene,
+        this._assetContainer,
+        (fileName: string) => {
+          fileToLoad = fileName;
+        }
+      );
+    } catch (err) {
+      console.log("err: ", err);
+    }
+
     // // load the materials
     // const mtlPromises: Array<Promise<void>> = [];
     // // Check if we have a file to load
