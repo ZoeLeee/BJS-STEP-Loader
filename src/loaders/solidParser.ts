@@ -4,17 +4,25 @@ import {
   Color4,
   Geometry,
   Material,
+  Matrix,
   Mesh,
   MeshBuilder,
   Nullable,
   ParticleSystem,
   PointsCloudSystem,
+  PolygonMeshBuilder,
   Scene,
   StandardMaterial,
   Vector2,
   Vector3,
   VertexBuffer,
 } from "@babylonjs/core";
+
+import earcut from "earcut";
+
+window["earcut"] = earcut;
+
+// declare let earcut: any;
 
 type MeshObject = {
   name: string;
@@ -37,6 +45,36 @@ type TEdgeLoop = TOrientedEdge[];
 type TFaceOuterBound = [TEdgeLoop, boolean];
 type TAdFace = [TFaceOuterBound[], Vector3D, boolean];
 type TCloseShell = TAdFace[];
+
+function arrayLast<T>(arr: T[]): T {
+  return arr[arr.length - 1];
+}
+
+function closedEdge(loopEdge: TEdgeLoop) {
+  const newEdges: TEdgeLoop = [loopEdge.shift()];
+  const cache = new Set();
+  while (cache.size !== loopEdge.length) {
+    for (const edge of loopEdge) {
+      if (cache.has(edge)) continue;
+      const lastEdge = arrayLast(newEdges);
+      const s1 = lastEdge[0][0][0];
+      const e1 = lastEdge[0][0][1];
+
+      const s2 = edge[0][0][0];
+      const e2 = edge[0][0][1];
+
+      if (e1.equals(s2)) {
+        newEdges.push(edge);
+        cache.add(edge);
+      } else if (e1.equals(e2)) {
+        edge[0][0].reverse();
+        newEdges.push(edge);
+        cache.add(edge);
+      }
+    }
+  }
+  return newEdges;
+}
 
 /**
  * Class used to load mesh data from OBJ content
@@ -302,10 +340,10 @@ export class SolidParser {
       }
     }
 
-    const vertexs: Vector3[] = [];
-    const positions: number[] = [];
-    const indices: number[] = [];
-    const normals: number[] = [];
+    let vertexs: Vector3[] = [];
+    let positions: number[] = [];
+    let indices: number[] = [];
+    let normals: number[] = [];
     const colors: number[] = [];
     const uvs: number[] = [];
 
@@ -383,20 +421,27 @@ export class SolidParser {
 
     const babylonMeshesArray: Mesh[] = [];
     const meshObjects: MeshObject[] = [];
-    let index = 0;
+
     for (const f of getCloseShell) {
       const t = f();
       console.log("t: ", t);
       const usePts: Vector3[] = [];
-
+      let index = 0;
       for (const shell of t) {
         if (!shell[0]) continue;
         for (const edgeLoop of shell[0]) {
           const allPoints: Vector3[] = [];
-          for (const oedge of edgeLoop[0]) {
+          const loopEdge = closedEdge(edgeLoop[0]);
+          for (const oedge of loopEdge) {
             const edge = oedge[0];
-            if (edge) allPoints.push(...edge[0]);
-            else {
+            if (edge) {
+              const lastPt = arrayLast(allPoints);
+              if (!lastPt || lastPt.equals(edge[0][0])) {
+                allPoints.push(...edge[0]);
+              } else {
+                allPoints.push(...[...edge[0]].reverse());
+              }
+            } else {
               console.log(edge);
             }
           }
@@ -405,15 +450,36 @@ export class SolidParser {
           const uniPoints = Array.from(new Set([...allPoints]));
           console.log("uniPoints: ", uniPoints);
           let dir = shell[1][1];
+          console.log("dir: ", dir);
+          let nor = shell[1][2];
+          console.log("nor: ", nor);
+
+          const z = dir.clone();
+          const x = nor.clone();
+          const y = x.cross(z);
+          const mtx = new Matrix();
+          Matrix.FromXYZAxesToRef(x, y, z, mtx);
+
+          mtx.invertToRef(mtx);
+
+          let pos: number[] = [];
           for (const pt of uniPoints) {
             positions.push(pt.x, pt.y, pt.z);
+            const newPt = Vector3.TransformCoordinates(pt, mtx);
+            console.log("newPt: ", newPt);
+            pos.push(newPt.x, newPt.y);
             normals.push(dir.x, dir.y, dir.z);
           }
-          for (const pt of allPoints) {
-            const i = uniPoints.indexOf(pt);
-            indices.push(i + index);
+          // for (const pt of allPoints) {
+          //   const i = uniPoints.indexOf(pt);
+          //   indices.push(i + index);
+          // }
+          const indexs = earcut(pos, null, 2);
+          if (indexs.length === 3) {
+            console.log(pos);
           }
-          index = uniPoints.length;
+          indices.push(...indexs.map((i) => i + index));
+          index += uniPoints.length;
 
           // let lines = MeshBuilder.CreateLines(
           //   "lines",
@@ -448,15 +514,21 @@ export class SolidParser {
       //   materialName: "",
       // });
     }
+    // positions = [10, 0, 1, 0, 50, 2, 60, 60, 3, 70, 10, 4];
+    // normals = [0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0];
+    // indices = earcut(positions, null, 3);
 
-    // const mesh = new Mesh("123", scene);
+    const mesh = new Mesh("123", scene);
     // console.log("mesh: ", mesh);
-    // mesh.setVerticesData(VertexBuffer.PositionKind, positions);
+    mesh.setVerticesData(VertexBuffer.PositionKind, positions);
     // console.log("positions: ", positions);
     // console.log("normals: ", normals);
-    // mesh.setVerticesData(VertexBuffer.NormalKind, normals);
+    mesh.setVerticesData(VertexBuffer.NormalKind, normals);
     // console.log("indices: ", indices);
-    // mesh.setIndices([1, 0, 3, 3, 2, 1]);
+    mesh.setIndices(indices);
+
+    // mesh.material.backFaceCulling = false;
+
     // mesh.computeWorldMatrix(true);
     const pcs = new PointsCloudSystem("pcs", 12, scene);
     // const m = MeshBuilder.CreateBox("test", { size: 10 });
