@@ -423,7 +423,7 @@ export class SolidParser {
 
     const babylonMeshesArray: Mesh[] = [];
     const meshObjects: MeshObject[] = [];
-
+    let testIndex = 0;
     for (const f of getCloseShell) {
       const t = f();
       console.log("t: ", t);
@@ -456,7 +456,7 @@ export class SolidParser {
           let nor = shell[1][2];
           console.log("nor: ", nor);
 
-          if (Math.abs(dir.z) - 1e-4 < 0) continue;
+          // if (Math.abs(dir.z) - 1e-4 < 0) continue;
 
           const z = dir.clone();
           const x = nor.clone();
@@ -470,7 +470,6 @@ export class SolidParser {
           for (const pt of uniPoints) {
             positions.push(pt.x, pt.y, pt.z);
             const newPt = Vector3.TransformCoordinates(pt, mtx);
-            console.log("newPt: ", newPt);
             pos.push(newPt.x, newPt.y);
             normals.push(dir.x, dir.y, dir.z);
           }
@@ -478,14 +477,14 @@ export class SolidParser {
           //   const i = uniPoints.indexOf(pt);
           //   indices.push(i + index);
           // }
+          console.log("pos: ", pos);
           const indexs = earcut(pos, null, 2) as number[];
           if (indexs.length === 3) {
             console.log(pos);
           }
-          indexs.reverse();
+          // indexs.reverse();
           indices.push(...indexs.map((i) => i + index));
           index += uniPoints.length;
-
           // let lines = MeshBuilder.CreateLines(
           //   "lines",
           //   { points: uniPoints },
@@ -505,8 +504,11 @@ export class SolidParser {
               console.log(edge);
             }
           }
-          // break;
         }
+        testIndex++;
+        // if (testIndex === 4) {
+        //   break;
+        // }
       }
 
       // meshObjects.push({
@@ -525,6 +527,7 @@ export class SolidParser {
 
     const mesh = new Mesh("123", scene);
     // console.log("mesh: ", mesh);
+
     mesh.setVerticesData(VertexBuffer.PositionKind, positions);
     // console.log("positions: ", positions);
     // console.log("normals: ", normals);
@@ -532,12 +535,15 @@ export class SolidParser {
     // console.log("indices: ", indices);
     mesh.setIndices(indices);
 
-    // mesh.material.backFaceCulling = false;
+    const mtl = new StandardMaterial("test");
+
+    mtl.backFaceCulling = false;
+    mesh.material = mtl;
 
     // mesh.computeWorldMatrix(true);
     const pcs = new PointsCloudSystem("pcs", 12, scene);
-    // const m = MeshBuilder.CreateBox("test", { size: 10 });
-    // console.log("box: ", m);
+    const m = MeshBuilder.CreatePlane("test", { size: 10 });
+    console.log("box: ", m);
     pcs.addPoints(getVertexPoint.length, function (particle, i) {
       particle.position = getVertexPoint[i]();
 

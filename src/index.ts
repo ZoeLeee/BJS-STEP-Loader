@@ -35,7 +35,7 @@ const engine = new Engine(canvas);
 engine.setSize(window.innerWidth, window.innerHeight);
 
 const scene = new Scene(engine);
-scene.useRightHandedSystem = true;
+// scene.useRightHandedSystem = true;
 scene.createDefaultLight(true);
 
 const camera = new ArcRotateCamera(
