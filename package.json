@@ -4,7 +4,8 @@
   "description": "Encrypt 3DModel",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "es": "node build.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "copy-webpack-plugin": "^10.2.2",
     "core-js": "^3.20.3",
     "earcut": "^2.2.3",
+    "esbuild": "^0.14.39",
     "express": "^4.17.2",
     "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.67.0",
