@@ -16,19 +16,6 @@ import "./loaders/StepFileLoader";
 import "@babylonjs/core/Debug/debugLayer";
 import "@babylonjs/inspector";
 
-// if ("serviceWorker" in navigator) {
-//   navigator.serviceWorker
-//     .register("/sw.js")
-//     .then(function (reg) {
-//       // registration worked
-//       console.log("Registration succeeded. Scope is " + reg.scope);
-//     })
-//     .catch(function (error) {
-//       // registration failed
-//       console.log("Registration failed with " + error);
-//     });
-// }
-
 const canvas = document.getElementById("canvas") as HTMLCanvasElement;
 
 const engine = new Engine(canvas);
@@ -85,7 +72,7 @@ function zoomAll(s = scene) {
 
 window["zoomall"] = zoomAll;
 
-SceneLoader.AppendAsync("/static/models/", "04.STEP").then((scene) => {});
+SceneLoader.AppendAsync("/static/models/", "05.STEP").then((scene) => {});
 // SceneLoader.AppendAsync("/static/models/", "Xbot.glb").then((s) => {
 //   console.log("s.material: ", s.materials);
 //   s.materials.forEach(
@@ -119,6 +106,10 @@ window["debug"] = () => {
     overlay: true,
     globalRoot: document.getElementById("app"),
   });
+};
+
+window.onresize = () => {
+  engine.setSize(window.innerWidth, window.innerHeight);
 };
 
 window["debug"]();

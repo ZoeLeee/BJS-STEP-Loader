@@ -23,7 +23,7 @@ import earcut from "earcut";
 window["earcut"] = earcut;
 
 // declare let earcut: any;
-
+//https://playground.babylonjs.com/#PQ0GIE#476 弧形面
 type MeshObject = {
   name: string;
   indices?: Array<number>;
@@ -383,29 +383,29 @@ export class SolidParser {
 
     for (const f of getEdgeLoop) {
       const edgeLoop = f();
-      // console.log("edgeLoop: ", edgeLoop);
-      // const c = new Color3(Math.random(), Math.random(), Math.random());
-      // const allPoints: Vector3[] = [];
-      // for (const edge of edgeLoop) {
-      //   const edge = edge[0];
+      console.log("edgeLoop: ", edgeLoop);
+      const c = new Color3(Math.random(), Math.random(), Math.random());
+      const allPoints: Vector3[] = [];
+      for (const ec of edgeLoop) {
+        const edge = ec[0];
 
-      //   // const line = edge[1];
+        // const line = edge[1];
 
-      //   // let l = MeshBuilder.CreateLines(
-      //   //   "lines",
-      //   //   { points: [line[0], line[0].add(line[1][0].scale(line[1][1]))] },
-      //   //   scene
-      //   // );
-      //   // l.color = new Color3(1, 1, 1);
-      //   allPoints.push(...edge[0]);
-      // }
-      // console.log("all", allPoints);
-      // let lines = MeshBuilder.CreateLines(
-      //   "lines",
-      //   { points: allPoints },
-      //   scene
-      // );
-      // lines.color = c;
+        // let l = MeshBuilder.CreateLines(
+        //   "lines",
+        //   { points: [line[0], line[0].add(line[1][0].scale(line[1][1]))] },
+        //   scene
+        // );
+        // l.color = new Color3(1, 1, 1);
+        allPoints.push(...edge[0]);
+      }
+      console.log("all", allPoints);
+      let lines = MeshBuilder.CreateLines(
+        "lines",
+        { points: allPoints },
+        scene
+      );
+      lines.color = c;
     }
     for (const f of getFaceOuterBound) {
       const t = f();
@@ -424,7 +424,10 @@ export class SolidParser {
     const babylonMeshesArray: Mesh[] = [];
     const meshObjects: MeshObject[] = [];
     let testIndex = 0;
+    console.log("getCloseShell: ", getCloseShell);
+
     for (const f of getCloseShell) {
+      break;
       const t = f();
       console.log("t: ", t);
       const usePts: Vector3[] = [];
@@ -451,9 +454,9 @@ export class SolidParser {
 
           const uniPoints = Array.from(new Set([...allPoints]));
           console.log("uniPoints: ", uniPoints);
-          let dir = shell[1][1];
+          let dir = shell[1]?.[1] ?? new Vector3(1);
           console.log("dir: ", dir);
-          let nor = shell[1][2];
+          let nor = shell[1]?.[2] ?? new Vector3(1);
           console.log("nor: ", nor);
 
           // if (Math.abs(dir.z) - 1e-4 < 0) continue;
@@ -525,25 +528,25 @@ export class SolidParser {
     // normals = [0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0];
     // indices = earcut(positions, null, 3);
 
-    const mesh = new Mesh("123", scene);
-    // console.log("mesh: ", mesh);
+    // const mesh = new Mesh("123", scene);
+    // // console.log("mesh: ", mesh);
 
-    mesh.setVerticesData(VertexBuffer.PositionKind, positions);
-    // console.log("positions: ", positions);
-    // console.log("normals: ", normals);
-    mesh.setVerticesData(VertexBuffer.NormalKind, normals);
-    // console.log("indices: ", indices);
-    mesh.setIndices(indices);
+    // mesh.setVerticesData(VertexBuffer.PositionKind, positions);
+    // // console.log("positions: ", positions);
+    // // console.log("normals: ", normals);
+    // mesh.setVerticesData(VertexBuffer.NormalKind, normals);
+    // // console.log("indices: ", indices);
+    // mesh.setIndices(indices);
 
     const mtl = new StandardMaterial("test");
 
     mtl.backFaceCulling = false;
-    mesh.material = mtl;
+    // mesh.material = mtl;
 
     // mesh.computeWorldMatrix(true);
     const pcs = new PointsCloudSystem("pcs", 12, scene);
-    const m = MeshBuilder.CreatePlane("test", { size: 10 });
-    console.log("box: ", m);
+    // const m = MeshBuilder.CreatePlane("test", { size: 10 });
+    // console.log("box: ", m);
     pcs.addPoints(getVertexPoint.length, function (particle, i) {
       particle.position = getVertexPoint[i]();
 
