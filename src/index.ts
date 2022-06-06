@@ -161,7 +161,10 @@ fileEl.addEventListener("change", (e) => {
       console.log("res: ", res);
       loading.innerText = "上传解析成功，正在加载。。。。。";
       if (res.ok) {
-        SceneLoader.AppendAsync("http://127.0.0.1:5000/", res.url).then((s) => {
+        SceneLoader.AppendAsync(
+          "http://127.0.0.1:5000/download/",
+          res.url
+        ).then((s) => {
           console.log("s.material: ", s.materials);
           s.materials.forEach(
             (m) => ((m as StandardMaterial).diffuseColor = Color3.White())

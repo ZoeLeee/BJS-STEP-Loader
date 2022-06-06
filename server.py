@@ -3,7 +3,7 @@
 import json
 from flask import Flask,render_template, request, send_from_directory,jsonify
 from flask_cors import cross_origin
-from cqparts import Part
+from cqparts import Assembly
 
 import os
 # import sys
@@ -56,11 +56,11 @@ def upload():
         file.save(filePath)
         newFilePath=os.path.join(dirpath,file.filename.replace('STEP','gltf'))
         
-        Part.importer('step')(filePath).exporter('gltf')(filename=newFilePath, embed=True)
+        Assembly.importer('step')(filePath).exporter('gltf')(filename=newFilePath, embed=False)
 
         res_json = json.dumps({
             "ok":True,
-            "url":'download/'+file.filename.replace('STEP','gltf')
+            "url":file.filename.replace('STEP','gltf')
         })
         return res_json
     else:
