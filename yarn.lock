@@ -1656,7 +1656,7 @@ colorette@^2.0.10, colorette@^2.0.14:
   resolved "https://registry.yarnpkg.com/colorette/-/colorette-2.0.16.tgz#713b9af84fdb000139f04546bd4a93f62a5085da"
   integrity sha512-hUewv7oMjCp+wkBv5Rm0v87eJhq4woh5rSR+42YSQJKecCqgIqNkZ6lAlQms/BwHPJA5NKMRlpxPRv0n8HQW6g==
 
-commander@^2.20.0:
+commander@^2.20.0, commander@^2.20.3:
   version "2.20.3"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
@@ -1909,6 +1909,22 @@ dot-case@^3.0.4:
   dependencies:
     no-case "^3.0.4"
     tslib "^2.0.3"
+
+dxf-parser@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.npmmirror.com/dxf-parser/-/dxf-parser-1.1.2.tgz#0b3ba561cd84b5945bee17403e235599bee8c50b"
+  integrity sha512-GPTumUvRkounlIazLIyJMmTWt+nlg+ksS0Hdm8jWvejmZKBTz6gvHTam76wRm4PQMma5sgKLThblQyeIJcH79Q==
+  dependencies:
+    loglevel "^1.7.1"
+
+dxf@^4.6.3:
+  version "4.6.3"
+  resolved "https://registry.npmmirror.com/dxf/-/dxf-4.6.3.tgz#da570b028214807c0698b1ad9fe04bc3ad94ceab"
+  integrity sha512-cnApNcEn7bFLe93Px+F68R5Bj2MO3Bvc8xO/CD3LC8iw3PE0iGRsf3L44jIundgExQPuacF580jhImgND05DhQ==
+  dependencies:
+    commander "^2.20.3"
+    lodash "^4.17.15"
+    vecks "^3.9.0"
 
 earcut@^2.2.3:
   version "2.2.3"
@@ -2726,10 +2742,15 @@ lodash.debounce@^4.0.8:
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
 
-lodash@^4.17.14, lodash@^4.17.20, lodash@^4.17.21:
+lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.20, lodash@^4.17.21:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
+loglevel@^1.7.1:
+  version "1.8.0"
+  resolved "https://registry.npmmirror.com/loglevel/-/loglevel-1.8.0.tgz#e7ec73a57e1e7b419cb6c6ac06bf050b67356114"
+  integrity sha512-G6A/nJLRgWOuuwdNuA6koovfEV1YpqqAG4pRUlFaz3jj2QNZ8M4vBqnVA+HBTmU/AMNUtlOsMmSpF6NyOjztbA==
 
 lower-case@^2.0.2:
   version "2.0.2"
@@ -2955,6 +2976,11 @@ open@^8.0.9:
     define-lazy-prop "^2.0.0"
     is-docker "^2.1.1"
     is-wsl "^2.2.0"
+
+opencascade.js@2.0.0-beta.6e177a4:
+  version "2.0.0-beta.6e177a4"
+  resolved "https://registry.npmmirror.com/opencascade.js/-/opencascade.js-2.0.0-beta.6e177a4.tgz#8b3fe100624fb431f81248dc19161917bc21254c"
+  integrity sha512-qvHXTcef9RajX24l6pZfoDxOTH9lYxfpV5cNbPFJfs6Sf9STpw4M6Cso8UtE/8EjeS9jkxTmxMKoGfb0YcKJeg==
 
 p-limit@^2.2.0:
   version "2.3.0"
@@ -3651,6 +3677,11 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
+
+vecks@^3.9.0:
+  version "3.9.2"
+  resolved "https://registry.npmmirror.com/vecks/-/vecks-3.9.2.tgz#b3f20c9d928d85488fe73ec25ba3b48859594d47"
+  integrity sha512-ubOo1KoOrPu3llYmlE4SH60JWcR+YDaObP+1Kzpbcl09dKIf0fbBweW8Xyg+6Nk2Rrnyit6Jxw9bx2LOYpMQMA==
 
 watchpack@^2.3.1:
   version "2.3.1"

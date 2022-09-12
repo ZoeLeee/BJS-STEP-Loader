@@ -8,7 +8,11 @@ import {
   StandardMaterial,
   Color3,
   Engine,
+  Texture,
+  MeshBuilder,
+  TransformNode,
 } from "@babylonjs/core";
+import { Helper } from "dxf";
 
 import * as BABYLON from "@babylonjs/core";
 
@@ -99,7 +103,7 @@ console.log(12);
 //     }, 1000);
 //   }
 // );
-// SceneLoader.AppendAsync("/static/models/", "AVG01.obj").then((s) => {
+// SceneLoader.AppendAsync("/static/models/", "dog.glb").then((s) => {
 //   console.log("s.material: ", s.materials);
 //   s.materials.forEach(
 //     (m) => ((m as StandardMaterial).diffuseColor = Color3.White())
@@ -138,6 +142,70 @@ loading.style.display = "none";
 fileEl.addEventListener("change", (e) => {
   const files = fileEl.files as FileList;
   if (files.length === 0) return;
+  console.log(files[0].type);
+  if (files[0].name.endsWith("dxf")) {
+    const reader = new FileReader();
+    reader.readAsText(files[0]);
+    reader.onload = (e) => {
+      console.log(e);
+      const result = e.target.result;
+      const helper = new Helper(result);
+
+      // The 1-to-1 object representation of the DXF
+      console.log("parsed:", helper.parsed);
+
+      // Denormalised blocks inserted with transforms applied
+      // console.log("denormalised:", helper.denormalised);
+
+      // Create an SVG
+      console.log("svg:", typeof helper.toSVG());
+
+      // Create polylines (e.g. to render in WebGL)
+      const data = helper.toPolylines();
+      console.log("data: ", data);
+      const texture = Texture.LoadFromDataString(
+        "svg",
+        "data:image/svg+xml;base64," + window.btoa(helper.toSVG()),
+        scene
+      );
+      const mtl = new StandardMaterial("2222");
+      mtl.diffuseTexture = texture;
+      // const plane = MeshBuilder.CreateGround(
+      //   "123",
+      //   { width: 213, height: 150 },
+      //   scene
+      // );
+      // plane.material = mtl;
+      const root = new TransformNode("l-root");
+      const bbox = data.bbox;
+      const min = new Vector3(bbox.min.x, bbox.min.y);
+      const max = new Vector3(bbox.max.x, bbox.max.y);
+      const center = Vector3.Center(min, max);
+      let index = 0;
+      for (const l of data.polylines) {
+        if (l.vertices.length === 0) continue;
+        const color = new Color3(
+          l.rgb[0] / 255,
+          l.rgb[1] / 255,
+          l.rgb[2] / 255
+        );
+        const line = MeshBuilder.CreateLines(
+          (index++).toString(),
+          {
+            points: l.vertices.map((v) => new Vector3(v[0], v[1])),
+          },
+          scene
+        );
+        line.color = color;
+        line.parent = root;
+      }
+      root.position = min.negate();
+      zoomAll(scene);
+    };
+    fileEl.value = "";
+    return;
+  }
+
   loading.style.display = "block";
   const formData = new FormData();
   //@ts-ignore
