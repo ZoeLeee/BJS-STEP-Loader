@@ -13,7 +13,7 @@ import {
   TransformNode,
 } from "@babylonjs/core";
 import { Helper } from "dxf";
-
+import DxfParser from 'dxf-parser';
 import * as BABYLON from "@babylonjs/core";
 
 import "@babylonjs/loaders/glTF";
@@ -21,16 +21,19 @@ import "@babylonjs/loaders/OBJ";
 import "./loaders/StepFileLoader";
 import "@babylonjs/core/Debug/debugLayer";
 import "@babylonjs/inspector";
+import renderDXF from "./renderDXF";
 
 // window["BABYLON"] = BABYLON;
 
 const canvas = document.getElementById("canvas") as HTMLCanvasElement;
 
+const parser = new DxfParser();
+
 const engine = new Engine(canvas);
 engine.setSize(window.innerWidth, window.innerHeight);
 
 const scene = new Scene(engine);
-// scene.useRightHandedSystem = true;
+scene.useRightHandedSystem = true;
 scene.createDefaultLight(true);
 
 const camera = new ArcRotateCamera(
@@ -131,10 +134,10 @@ window["debug"] = () => {
 window.onresize = () => {
   engine.setSize(window.innerWidth, window.innerHeight);
 };
+new AxesViewer(scene)
 
 window["debug"]();
 render();
-
 const btn = document.getElementById("btn");
 const fileEl = document.getElementById("file") as HTMLInputElement;
 const loading = document.getElementById("loading");
@@ -146,61 +149,74 @@ fileEl.addEventListener("change", (e) => {
   if (files[0].name.endsWith("dxf")) {
     const reader = new FileReader();
     reader.readAsText(files[0]);
-    reader.onload = (e) => {
+    reader.onload =async (e) => {
       console.log(e);
       const result = e.target.result;
-      const helper = new Helper(result);
 
-      // The 1-to-1 object representation of the DXF
-      console.log("parsed:", helper.parsed);
+      console.time("2")
+      const dxf = parser.parse(result as string);
+      console.log('dxf: ', dxf);
+      console.timeEnd("2")
 
+      console.time("加载图像")
+      await renderDXF(dxf,scene)
+      console.timeEnd("加载图像")
+      setTimeout(() => {
+        // zoomAll(scene)
+      }, 1000);
+      // console.time("0")
+      // const helper = new Helper(result);
+      
+      // // The 1-to-1 object representation of the DXF
+      // console.log("parsed:", helper.parsed);
+      // console.timeEnd("0")
+      
       // Denormalised blocks inserted with transforms applied
       // console.log("denormalised:", helper.denormalised);
-
       // Create an SVG
-      console.log("svg:", typeof helper.toSVG());
+      // console.log("svg:", typeof helper.toSVG());
 
-      // Create polylines (e.g. to render in WebGL)
-      const data = helper.toPolylines();
-      console.log("data: ", data);
-      const texture = Texture.LoadFromDataString(
-        "svg",
-        "data:image/svg+xml;base64," + window.btoa(helper.toSVG()),
-        scene
-      );
-      const mtl = new StandardMaterial("2222");
-      mtl.diffuseTexture = texture;
-      // const plane = MeshBuilder.CreateGround(
-      //   "123",
-      //   { width: 213, height: 150 },
+      // // Create polylines (e.g. to render in WebGL)
+      // const data = helper.toPolylines();
+      // console.log("data: ", data);
+      // const texture = Texture.LoadFromDataString(
+      //   "svg",
+      //   "data:image/svg+xml;base64," + window.btoa(helper.toSVG()),
       //   scene
       // );
-      // plane.material = mtl;
-      const root = new TransformNode("l-root");
-      const bbox = data.bbox;
-      const min = new Vector3(bbox.min.x, bbox.min.y);
-      const max = new Vector3(bbox.max.x, bbox.max.y);
-      const center = Vector3.Center(min, max);
-      let index = 0;
-      for (const l of data.polylines) {
-        if (l.vertices.length === 0) continue;
-        const color = new Color3(
-          l.rgb[0] / 255,
-          l.rgb[1] / 255,
-          l.rgb[2] / 255
-        );
-        const line = MeshBuilder.CreateLines(
-          (index++).toString(),
-          {
-            points: l.vertices.map((v) => new Vector3(v[0], v[1])),
-          },
-          scene
-        );
-        line.color = color;
-        line.parent = root;
-      }
-      root.position = min.negate();
-      zoomAll(scene);
+      // const mtl = new StandardMaterial("2222");
+      // mtl.diffuseTexture = texture;
+      // // const plane = MeshBuilder.CreateGround(
+      // //   "123",
+      // //   { width: 213, height: 150 },
+      // //   scene
+      // // );
+      // // plane.material = mtl;
+      // const root = new TransformNode("l-root");
+      // const bbox = data.bbox;
+      // const min = new Vector3(bbox.min.x, bbox.min.y);
+      // const max = new Vector3(bbox.max.x, bbox.max.y);
+      // const center = Vector3.Center(min, max);
+      // let index = 0;
+      // for (const l of data.polylines) {
+      //   if (l.vertices.length === 0) continue;
+      //   const color = new Color3(
+      //     l.rgb[0] / 255,
+      //     l.rgb[1] / 255,
+      //     l.rgb[2] / 255
+      //   );
+      //   const line = MeshBuilder.CreateLines(
+      //     (index++).toString(),
+      //     {
+      //       points: l.vertices.map((v) => new Vector3(v[0], v[1])),
+      //     },
+      //     scene
+      //   );
+      //   line.color = color;
+      //   line.parent = root;
+      // }
+      // root.position = min.negate();
+      // zoomAll(scene);
     };
     fileEl.value = "";
     return;
