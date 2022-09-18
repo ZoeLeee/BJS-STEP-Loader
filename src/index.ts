@@ -13,7 +13,7 @@ import {
   TransformNode,
 } from "@babylonjs/core";
 import { Helper } from "dxf";
-import DxfParser from 'dxf-parser';
+import DxfParser from "dxf-parser";
 import * as BABYLON from "@babylonjs/core";
 
 import "@babylonjs/loaders/glTF";
@@ -35,7 +35,7 @@ engine.setSize(window.innerWidth, window.innerHeight);
 const scene = new Scene(engine);
 scene.useRightHandedSystem = true;
 scene.createDefaultLight(true);
-
+scene.clearColor = Color3.Black().toColor4();
 const camera = new ArcRotateCamera(
   "123",
   -(Math.PI / 2),
@@ -134,7 +134,7 @@ window["debug"] = () => {
 window.onresize = () => {
   engine.setSize(window.innerWidth, window.innerHeight);
 };
-new AxesViewer(scene)
+new AxesViewer(scene);
 
 window["debug"]();
 render();
@@ -149,40 +149,40 @@ fileEl.addEventListener("change", (e) => {
   if (files[0].name.endsWith("dxf")) {
     const reader = new FileReader();
     reader.readAsText(files[0]);
-    reader.onload =async (e) => {
+    reader.onload = async (e) => {
       console.log(e);
       const result = e.target.result;
 
-      console.time("2")
+      console.time("2");
       const dxf = parser.parse(result as string);
-      console.log('dxf: ', dxf);
-      console.timeEnd("2")
+      console.log("dxf: ", dxf);
+      console.timeEnd("2");
 
-      console.time("加载图像")
-      await renderDXF(dxf,scene)
-      console.timeEnd("加载图像")
+      console.time("加载图像");
+      await renderDXF(dxf, scene);
+      console.timeEnd("加载图像");
 
-      return
+      return;
       // return
       setTimeout(() => {
         // zoomAll(scene)
       }, 1000);
       // console.time("0")
       const helper = new Helper(result);
-      
+
       // // The 1-to-1 object representation of the DXF
       // console.log("parsed:", helper.parsed);
       // console.timeEnd("0")
-      
+
       // Denormalised blocks inserted with transforms applied
       // console.log("denormalised:", helper.denormalised);
       // Create an SVG
       // console.log("svg:", typeof helper.toSVG());
 
       // // Create polylines (e.g. to render in WebGL)
-      console.time("0")
+      console.time("0");
       const data = helper.toPolylines();
-      console.timeEnd("0")
+      console.timeEnd("0");
 
       // console.log("data: ", data);
       // const texture = Texture.LoadFromDataString(
