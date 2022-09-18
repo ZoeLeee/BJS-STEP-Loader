@@ -161,11 +161,14 @@ fileEl.addEventListener("change", (e) => {
       console.time("加载图像")
       await renderDXF(dxf,scene)
       console.timeEnd("加载图像")
+
+      return
+      // return
       setTimeout(() => {
         // zoomAll(scene)
       }, 1000);
       // console.time("0")
-      // const helper = new Helper(result);
+      const helper = new Helper(result);
       
       // // The 1-to-1 object representation of the DXF
       // console.log("parsed:", helper.parsed);
@@ -177,7 +180,10 @@ fileEl.addEventListener("change", (e) => {
       // console.log("svg:", typeof helper.toSVG());
 
       // // Create polylines (e.g. to render in WebGL)
-      // const data = helper.toPolylines();
+      console.time("0")
+      const data = helper.toPolylines();
+      console.timeEnd("0")
+
       // console.log("data: ", data);
       // const texture = Texture.LoadFromDataString(
       //   "svg",
@@ -192,29 +198,29 @@ fileEl.addEventListener("change", (e) => {
       // //   scene
       // // );
       // // plane.material = mtl;
-      // const root = new TransformNode("l-root");
+      const root = new TransformNode("l-root");
       // const bbox = data.bbox;
       // const min = new Vector3(bbox.min.x, bbox.min.y);
       // const max = new Vector3(bbox.max.x, bbox.max.y);
       // const center = Vector3.Center(min, max);
-      // let index = 0;
-      // for (const l of data.polylines) {
-      //   if (l.vertices.length === 0) continue;
-      //   const color = new Color3(
-      //     l.rgb[0] / 255,
-      //     l.rgb[1] / 255,
-      //     l.rgb[2] / 255
-      //   );
-      //   const line = MeshBuilder.CreateLines(
-      //     (index++).toString(),
-      //     {
-      //       points: l.vertices.map((v) => new Vector3(v[0], v[1])),
-      //     },
-      //     scene
-      //   );
-      //   line.color = color;
-      //   line.parent = root;
-      // }
+      let index = 0;
+      for (const l of data.polylines) {
+        if (l.vertices.length === 0) continue;
+        const color = new Color3(
+          l.rgb[0] / 255,
+          l.rgb[1] / 255,
+          l.rgb[2] / 255
+        );
+        const line = MeshBuilder.CreateLines(
+          (index++).toString(),
+          {
+            points: l.vertices.map((v) => new Vector3(v[0], v[1])),
+          },
+          scene
+        );
+        line.color = color;
+        line.parent = root;
+      }
       // root.position = min.negate();
       // zoomAll(scene);
     };
