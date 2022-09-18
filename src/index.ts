@@ -11,6 +11,7 @@ import {
   Texture,
   MeshBuilder,
   TransformNode,
+  PointerEventTypes,
 } from "@babylonjs/core";
 import { Helper } from "dxf";
 import DxfParser from "dxf-parser";
@@ -152,23 +153,30 @@ fileEl.addEventListener("change", (e) => {
     reader.onload = async (e) => {
       console.log(e);
       const result = e.target.result;
-
+      loading.style.display = "block";
+      loading.innerText = "正在解析。。。。。";
       console.time("2");
       const dxf = parser.parse(result as string);
       console.log("dxf: ", dxf);
       console.timeEnd("2");
 
-      console.time("加载图像");
-      await renderDXF(dxf, scene);
-      console.timeEnd("加载图像");
+      const helper = new Helper(result);
+      console.log("helper: ", helper.parsed);
+      console.time("0");
+      const data = helper.toPolylines();
+      console.timeEnd("0");
 
-      return;
+      console.log("data: ", data);
+
+      console.time("加载图像");
+      // await renderDXF(dxf, scene);
+      console.timeEnd("加载图像");
+      loading.style.display = "none";
       // return
       setTimeout(() => {
         // zoomAll(scene)
       }, 1000);
       // console.time("0")
-      const helper = new Helper(result);
 
       // // The 1-to-1 object representation of the DXF
       // console.log("parsed:", helper.parsed);
@@ -180,11 +188,7 @@ fileEl.addEventListener("change", (e) => {
       // console.log("svg:", typeof helper.toSVG());
 
       // // Create polylines (e.g. to render in WebGL)
-      console.time("0");
-      const data = helper.toPolylines();
-      console.timeEnd("0");
 
-      // console.log("data: ", data);
       // const texture = Texture.LoadFromDataString(
       //   "svg",
       //   "data:image/svg+xml;base64," + window.btoa(helper.toSVG()),
@@ -267,4 +271,10 @@ fileEl.addEventListener("change", (e) => {
         });
       }
     });
+});
+
+scene.onPointerObservable.add((info) => {
+  if (info.type === PointerEventTypes.POINTERDOWN) {
+    console.log("info: ", info);
+  }
 });
