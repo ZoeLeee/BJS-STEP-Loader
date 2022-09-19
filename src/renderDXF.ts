@@ -6,6 +6,7 @@ import {
   LinesMesh,
   Matrix,
   Scene,
+  Tools,
   TransformNode,
   Vector3,
 } from "@babylonjs/core";
@@ -29,7 +30,7 @@ let scene: Scene;
 let target: Vector3;
 let blocksMesh = [];
 
-const scale = 1e3;
+const scale = 1;
 
 const AsVector3 = (p) => {
   return new Vector3(p.x / scale, p.y / scale, p.z / scale);
@@ -119,7 +120,7 @@ function renderLine(en: IEntity) {
   return;
 }
 
-async function drawEntity(en: IEntity, index) {
+async function drawEntity(en: IEntity, index,root?:LinesMesh) {
   switch (en.type) {
     case "LINE":
       return renderLine(en);
@@ -129,11 +130,13 @@ async function drawEntity(en: IEntity, index) {
     case "INSERT": {
       const { xScale, yScale, zScale, position, rotation, name } =
         en as IInsertEntity;
-      if (name !== "D1") return [];
+    //   if (name !== "D1") return [];
       const block = parsed.blocks[name];
       let lines: LinesMesh[];
-      console.log("en: ", en);
-      console.log("index: ", index);
+      if(name==="导向滚筒89-2810"){
+        console.log("en: ", en);
+        console.log("index: ", index);
+      }
       if (block.entities) {
         if (BlockMap.has(name)) {
           lines = [BlockMap.get(name).clone(name)];
@@ -143,11 +146,14 @@ async function drawEntity(en: IEntity, index) {
         }
         for (const l of lines) {
           setColor(en, l);
-          console.log("position: ", position);
-          // l.scaling = new Vector3(xScale ?? 1, yScale ?? 1, zScale ?? 1);
-          // l.rotation.z = rotation;
+          l.scaling = new Vector3(xScale ?? 1, yScale ?? 1, zScale ?? 1);
+          l.rotation.z =Tools.ToRadians(rotation??0);
           l.position = AsVector3(position);
+          if (name === "D1")
           blocksMesh.push(l);
+          if(root){
+            l.parent=root;
+          }
         }
       }
       return [];
@@ -187,10 +193,10 @@ function setColor(entity: IEntity, line: LinesMesh) {
   }
   line.color = Color3.FromArray(rbg);
 }
+let ii = 0;
 
 async function drawEntitys(ens: IEntity[], block?: IBlock) {
   let i = 0;
-  let ii = 0;
   const lines: LinesMesh[] = [];
 
   if (block) {
@@ -212,9 +218,9 @@ async function drawEntitys(ens: IEntity[], block?: IBlock) {
     for (const en of ens) {
       const ps = await drawEntity(en, ii);
       if (ps.length > 0) {
-        // const line = CreateLines(en.layer, { points: ps }, scene);
-        // setColor(en, line);
-        // lines.push(line);
+        const line = CreateLines(en.layer, { points: ps }, scene);
+        setColor(en, line);
+        lines.push(line);
       }
       i++;
       ii++;
@@ -239,7 +245,7 @@ export default async (result: IDxf, scene: Scene) => {
   console.log("points: ", lines);
   const root = new TransformNode("root", scene);
   lines.forEach((l) => (l.parent = root));
-  zoomAll(scene, blocksMesh.slice(1));
+  zoomAll(scene, blocksMesh.slice(0,2));
   // (scene.activeCamera as ArcRotateCamera).setTarget(target);
   // return CreateLineSystem("line", { lines: lines }, scene);
 };

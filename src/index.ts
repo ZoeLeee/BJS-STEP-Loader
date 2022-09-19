@@ -162,17 +162,18 @@ fileEl.addEventListener("change", (e) => {
 
       const helper = new Helper(result);
       console.log("helper: ", helper.parsed);
-      console.time("0");
-      const data = helper.toPolylines();
-      console.timeEnd("0");
+      // console.time("0");
 
-      console.log("data: ", data);
+      // const data = helper.toPolylines();
+      // console.timeEnd("0");
+
+      // console.log("data: ", data);
 
       console.time("加载图像");
-      // await renderDXF(dxf, scene);
+      await renderDXF(dxf, scene);
       console.timeEnd("加载图像");
       loading.style.display = "none";
-      // return
+      return
       setTimeout(() => {
         // zoomAll(scene)
       }, 1000);
