@@ -16,6 +16,7 @@ import {
   IEntity,
   IInsertEntity,
   IPoint,
+  IPolylineEntity,
   ITables,
 } from "dxf-parser";
 import { sleep } from "./utils/sleep";
@@ -30,7 +31,7 @@ let scene: Scene;
 let target: Vector3;
 let blocksMesh = [];
 
-const scale = 1;
+const scale = 1e6;
 
 const AsVector3 = (p) => {
   return new Vector3(p.x / scale, p.y / scale, p.z / scale);
@@ -76,23 +77,17 @@ const GetMatrix4 = (en: IEntity) => {
   return mtx;
 };
 
-function renderPloyline(entity: IEntity) {
-  // const mtx = GetMatrix4(entity);
-  // const nor = mtx.getRow(2).toVector3();
-  const vertices = entity["vertices"] as IPoint[];
+function renderPloyline(entity: IPolylineEntity) {
+  const vertices = entity.vertices;
   if (!vertices?.length) return [];
-
-  if (entity["closed"]) {
-    vertices.push(vertices[0]);
-  }
 
   const ps: Vector3[] = [];
   for (let i = 0; i < vertices.length - 1; i++) {
     const from = AsVector3(vertices[i]);
     const to = AsVector3(vertices[i + 1]);
     ps.push(from);
-    if (vertices[i]["bulge"]) {
-      const points = createArcForLWPolyine(from, to, vertices[i]["bulge"]);
+    if (vertices[i].bulge) {
+      const points = createArcForLWPolyine(from, to, vertices[i].bulge);
       ps.push(...points.map(AsVector3));
     }
     if (i === vertices.length - 2) {
@@ -120,23 +115,20 @@ function renderLine(en: IEntity) {
   return;
 }
 
-async function drawEntity(en: IEntity, index,root?:LinesMesh) {
+async function drawEntity(en: IEntity, index) {
   switch (en.type) {
     case "LINE":
       return renderLine(en);
     case "POLYLINE":
     case "LWPOLYLINE":
-      return renderPloyline(en);
+      return renderPloyline(en as IPolylineEntity);
     case "INSERT": {
       const { xScale, yScale, zScale, position, rotation, name } =
         en as IInsertEntity;
-    //   if (name !== "D1") return [];
+      //   if (name !== "D1") return [];
       const block = parsed.blocks[name];
       let lines: LinesMesh[];
-      if(name==="导向滚筒89-2810"){
-        console.log("en: ", en);
-        console.log("index: ", index);
-      }
+
       if (block.entities) {
         if (BlockMap.has(name)) {
           lines = [BlockMap.get(name).clone(name)];
@@ -147,16 +139,12 @@ async function drawEntity(en: IEntity, index,root?:LinesMesh) {
         for (const l of lines) {
           setColor(en, l);
           l.scaling = new Vector3(xScale ?? 1, yScale ?? 1, zScale ?? 1);
-          l.rotation.z =Tools.ToRadians(rotation??0);
+          l.rotation.z = Tools.ToRadians(rotation ?? 0);
           l.position = AsVector3(position);
-          if (name === "D1")
           blocksMesh.push(l);
-          if(root){
-            l.parent=root;
-          }
         }
       }
-      return [];
+      return lines;
     }
     default:
       return [];
@@ -195,16 +183,22 @@ function setColor(entity: IEntity, line: LinesMesh) {
 }
 let ii = 0;
 
-async function drawEntitys(ens: IEntity[], block?: IBlock) {
+async function drawEntitys(ens: IEntity[], block?: IBlock,root?:boolean) {
   let i = 0;
   const lines: LinesMesh[] = [];
+    
 
   if (block) {
     const points: Vector3[][] = [];
+    const ls: LinesMesh[] = [];
     for (const en of ens) {
       const ps = await drawEntity(en, ii);
       if (ps.length > 0) {
-        points.push(ps);
+        if (ps[0] instanceof LinesMesh) {
+          ls.push(...(ps as LinesMesh[]));
+        } else {
+          points.push(ps as Vector3[]);
+        }
       }
       i++;
       if (i > 20) {
@@ -213,14 +207,25 @@ async function drawEntitys(ens: IEntity[], block?: IBlock) {
       }
     }
     const line = CreateLineSystem(block.name, { lines: points }, scene);
+    for (const l of ls) {
+      l.parent = line;
+    }
     lines.push(line);
   } else {
     for (const en of ens) {
       const ps = await drawEntity(en, ii);
       if (ps.length > 0) {
-        const line = CreateLines(en.layer, { points: ps }, scene);
-        setColor(en, line);
-        lines.push(line);
+        if (ps[0] instanceof Vector3) {
+          const line = CreateLines(
+            en.layer,
+            { points: ps as Vector3[] },
+            scene
+          );
+          setColor(en, line);
+          lines.push(line);
+        } else {
+          lines.push(...(ps as LinesMesh[]));
+        }
       }
       i++;
       ii++;
@@ -241,11 +246,10 @@ export default async (result: IDxf, scene: Scene) => {
   blocksMesh = [];
   BlockMap.clear();
   const lines: LinesMesh[] = [];
-  lines.push(...(await drawEntitys(result.entities)));
-  console.log("points: ", lines);
-  const root = new TransformNode("root", scene);
-  lines.forEach((l) => (l.parent = root));
-  zoomAll(scene, blocksMesh.slice(0,2));
+  lines.push(...(await drawEntitys(result.entities,null,true)));
+
+  //   if(blocksMesh.length>2)
+  //   zoomAll(scene, blocksMesh.slice(0,2));
   // (scene.activeCamera as ArcRotateCamera).setTarget(target);
   // return CreateLineSystem("line", { lines: lines }, scene);
 };

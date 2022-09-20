@@ -203,29 +203,29 @@ fileEl.addEventListener("change", (e) => {
       // //   scene
       // // );
       // // plane.material = mtl;
-      const root = new TransformNode("l-root");
+      // const root = new TransformNode("l-root");
       // const bbox = data.bbox;
       // const min = new Vector3(bbox.min.x, bbox.min.y);
       // const max = new Vector3(bbox.max.x, bbox.max.y);
       // const center = Vector3.Center(min, max);
-      let index = 0;
-      for (const l of data.polylines) {
-        if (l.vertices.length === 0) continue;
-        const color = new Color3(
-          l.rgb[0] / 255,
-          l.rgb[1] / 255,
-          l.rgb[2] / 255
-        );
-        const line = MeshBuilder.CreateLines(
-          (index++).toString(),
-          {
-            points: l.vertices.map((v) => new Vector3(v[0], v[1])),
-          },
-          scene
-        );
-        line.color = color;
-        line.parent = root;
-      }
+      // let index = 0;
+      // for (const l of data.polylines) {
+      //   if (l.vertices.length === 0) continue;
+      //   const color = new Color3(
+      //     l.rgb[0] / 255,
+      //     l.rgb[1] / 255,
+      //     l.rgb[2] / 255
+      //   );
+      //   const line = MeshBuilder.CreateLines(
+      //     (index++).toString(),
+      //     {
+      //       points: l.vertices.map((v) => new Vector3(v[0], v[1])),
+      //     },
+      //     scene
+      //   );
+      //   line.color = color;
+      //   line.parent = root;
+      // }
       // root.position = min.negate();
       // zoomAll(scene);
     };
