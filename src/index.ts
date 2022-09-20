@@ -160,19 +160,20 @@ fileEl.addEventListener("change", (e) => {
       console.log("dxf: ", dxf);
       console.timeEnd("2");
 
-      const helper = new Helper(result);
-      console.log("helper: ", helper.parsed);
+      // const helper = new Helper(result);
+      // console.log("helper: ", helper.parsed);
       // console.time("0");
 
       // const data = helper.toPolylines();
       // console.timeEnd("0");
 
       // console.log("data: ", data);
-
+      engine.stopRenderLoop()
       console.time("加载图像");
       await renderDXF(dxf, scene);
       console.timeEnd("加载图像");
       loading.style.display = "none";
+      render()
       return
       setTimeout(() => {
         // zoomAll(scene)

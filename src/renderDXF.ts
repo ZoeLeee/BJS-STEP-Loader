@@ -31,7 +31,7 @@ let scene: Scene;
 let target: Vector3;
 let blocksMesh = [];
 
-const scale = 1e6;
+const scale = 1e3;
 
 const AsVector3 = (p) => {
   return new Vector3(p.x / scale, p.y / scale, p.z / scale);
@@ -229,7 +229,7 @@ async function drawEntitys(ens: IEntity[], block?: IBlock,root?:boolean) {
       }
       i++;
       ii++;
-      if (i > 20) {
+      if (i > 100) {
         await sleep(0);
         i = 0;
       }
@@ -248,6 +248,15 @@ export default async (result: IDxf, scene: Scene) => {
   const lines: LinesMesh[] = [];
   lines.push(...(await drawEntitys(result.entities,null,true)));
 
+  const root=new TransformNode("root");
+  for(const l of lines){
+    l.parent=root
+  }
+  const max=AsVector3(result.header["$EXTMAX"])
+  const min=AsVector3(result.header["$EXTMIN"])
+  const center=Vector3.Center(max,min)
+
+  root.position=center.negate()
   //   if(blocksMesh.length>2)
   //   zoomAll(scene, blocksMesh.slice(0,2));
   // (scene.activeCamera as ArcRotateCamera).setTarget(target);
