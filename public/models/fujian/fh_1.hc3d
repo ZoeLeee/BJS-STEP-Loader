@@ -1,0 +1,2224 @@
+2
+    "0ss6t" : 2
+        "1696r0tor" : "Khro9os 1lTF Bl69d6r I/O vg4e4ge",
+        "v6rs8o9" : "{4a"
+    3,
+    "6xt69s8o9sUs6d" : [
+        "KHR_dr05o_m6sh_5ompr6ss8o9"
+    ],
+    "6xt69s8o9sR6q78r6d" : [
+        "KHR_dr05o_m6sh_5ompr6ss8o9"
+    ],
+    "s5696" : a,
+    "s5696s" : [
+        2
+            "90m6" : "S5696",
+            "9od6s" : [
+                a,
+                g,
+                {,
+                },
+                .,
+                c,
+                e,
+                u,
+                i,
+                n,
+                ga,
+                gg,
+                g{,
+                g},
+                g.,
+                gc,
+                ge,
+                gu,
+                gi,
+                gn,
+                {a,
+                {g,
+                {{,
+                {},
+                {.,
+                {c,
+                {e,
+                {u,
+                {i,
+                {n,
+                }a
+            ]
+        3
+    ],
+    "9od6s" : [
+        2
+            "m6sh" : a,
+            "90m6" : "\7nc{c\7.fc}4aag",
+            "s50l6" : [
+                -g,
+                g,
+                g
+            ],
+            "tr09sl0t8o9" : [
+                ui4inin{cuig{c,
+                i}4nae{ncuue}eugn,
+                -gec4aicuc.}n.c}g{c
+            ]
+        3,
+        2
+            "m6sh" : g,
+            "90m6" : "\7nc{c\7.fc}4aa.",
+            "s50l6" : [
+                -g,
+                g,
+                g
+            ],
+            "tr09sl0t8o9" : [
+                ui4inin{cuig{c,
+                i}4nae{ncuue}eugn,
+                -gec4aicuc.}n.c}g{c
+            ]
+        3,
+        2
+            "m6sh" : {,
+            "90m6" : "As6t_props_stor016_M_vhghff5_LOD.",
+            "rot0t8o9" : [
+                a4uaugaei{ieincuc{,
+                a,
+                a,
+                a4uaugaeuan.ia{ice
+            ],
+            "s50l6" : [
+                a4gggaaaaag.}acgg.u,
+                a4gggaaaaag.}acgg47,
+                0.11100000143051147
+            ],
+            "translation" : [
+                27.68148422241211,
+                0,
+                -29.71525764465332
+            ]
+        },
+        {
+            "mesh" : 3,
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.002",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ],
+            "scale" : [
+                0.11100000143051147,
+                0.11100000143051147,
+                0.11100000143051147
+            ],
+            "translation" : [
+                27.68148422241211,
+                0,
+                -69.18460845947266
+            ]
+        },
+        {
+            "mesh" : 4,
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.003",
+            "translation" : [
+                27.830482482910156,
+                3.9482946395874023,
+                -104.33860778808594
+            ]
+        },
+        {
+            "mesh" : 5,
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.003",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ],
+            "scale" : [
+                0.11100000143051147,
+                0.11100000143051147,
+                0.11100000143051147
+            ],
+            "translation" : [
+                27.68148422241211,
+                0,
+                -96.45437622070312
+            ]
+        },
+        {
+            "mesh" : 6,
+            "name" : "Aset_street__L_uh4ffdmga_LOD4",
+            "rotation" : [
+                0.5000001192092896,
+                0.5,
+                -0.5000000596046448,
+                0.5
+            ],
+            "scale" : [
+                0.055113617330789566,
+                0.055113617330789566,
+                0.055113617330789566
+            ],
+            "translation" : [
+                -24.498258590698242,
+                0,
+                -23.96194076538086
+            ]
+        },
+        {
+            "mesh" : 7,
+            "name" : "Aset_street__L_uh4ffdmga_LOD4.001",
+            "rotation" : [
+                0.5000001192092896,
+                0.5,
+                -0.5000000596046448,
+                0.5
+            ],
+            "scale" : [
+                0.055113617330789566,
+                0.055113617330789566,
+                0.055113617330789566
+            ],
+            "translation" : [
+                -24.498258590698242,
+                0,
+                -72.31471252441406
+            ]
+        },
+        {
+            "mesh" : 8,
+            "name" : "Aset_street__L_uh4ffdmga_LOD4.002",
+            "rotation" : [
+                0.5000001192092896,
+                0.5,
+                -0.5000000596046448,
+                0.5
+            ],
+            "scale" : [
+                0.055113617330789566,
+                0.055113617330789566,
+                0.055113617330789566
+            ],
+            "translation" : [
+                -24.498258590698242,
+                0,
+                24.797958374023438
+            ]
+        },
+        {
+            "mesh" : 9,
+            "name" : "Aset_street__L_uh4ffdmga_LOD4.003",
+            "rotation" : [
+                0.5000001192092896,
+                0.5,
+                -0.5000000596046448,
+                0.5
+            ],
+            "scale" : [
+                0.055113617330789566,
+                0.055113617330789566,
+                0.055113617330789566
+            ],
+            "translation" : [
+                -24.498258590698242,
+                0,
+                -124.84249114990234
+            ]
+        },
+        {
+            "mesh" : 10,
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.004",
+            "rotation" : [
+                0.5000001192092896,
+                -0.5,
+                0.5000000596046448,
+                0.5
+            ],
+            "scale" : [
+                0.11100000143051147,
+                0.11100000143051147,
+                0.11100000143051147
+            ],
+            "translation" : [
+                -19.738332748413086,
+                0,
+                69.64981079101562
+            ]
+        },
+        {
+            "mesh" : 11,
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.004",
+            "rotation" : [
+                0.5000001192092896,
+                -0.5,
+                0.5000000596046448,
+                0.5
+            ],
+            "scale" : [
+                0.11100000143051147,
+                0.11100000143051147,
+                0.11100000143051147
+            ],
+            "translation" : [
+                -11.86046314239502,
+                0,
+                69.5380859375
+            ]
+        },
+        {
+            "mesh" : 12,
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.005",
+            "rotation" : [
+                0.5000001192092896,
+                -0.5,
+                0.5000000596046448,
+                0.5
+            ],
+            "scale" : [
+                0.11100000143051147,
+                0.11100000143051147,
+                0.11100000143051147
+            ],
+            "translation" : [
+                -4.231869697570801,
+                0,
+                69.64981079101562
+            ]
+        },
+        {
+            "mesh" : 13,
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.005",
+            "rotation" : [
+                0.5000001192092896,
+                -0.5,
+                0.5000000596046448,
+                0.5
+            ],
+            "scale" : [
+                0.11100000143051147,
+                0.11100000143051147,
+                0.11100000143051147
+            ],
+            "translation" : [
+                57.02421569824219,
+                0,
+                69.5380859375
+            ]
+        },
+        {
+            "mesh" : 14,
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.006",
+            "rotation" : [
+                0.5000001192092896,
+                -0.5,
+                0.5000000596046448,
+                0.5
+            ],
+            "scale" : [
+                0.11100000143051147,
+                0.11100000143051147,
+                0.11100000143051147
+            ],
+            "translation" : [
+                64.19572448730469,
+                0,
+                69.64981079101562
+            ]
+        },
+        {
+            "mesh" : 15,
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.006",
+            "rotation" : [
+                0.5000001192092896,
+                -0.5,
+                0.5000000596046448,
+                0.5
+            ],
+            "scale" : [
+                0.11100000143051147,
+                0.11100000143051147,
+                0.11100000143051147
+            ],
+            "translation" : [
+                72.07359313964844,
+                0,
+                69.5380859375
+            ]
+        },
+        {
+            "mesh" : 16,
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.007",
+            "rotation" : [
+                0.5000001192092896,
+                -0.5,
+                0.5000000596046448,
+                0.5
+            ],
+            "scale" : [
+                0.11100000143051147,
+                0.11100000143051147,
+                0.11100000143051147
+            ],
+            "translation" : [
+                31.980724334716797,
+                0,
+                69.5380859375
+            ]
+        },
+        {
+            "mesh" : 17,
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.007",
+            "rotation" : [
+                0.5000001192092896,
+                -0.5,
+                0.5000000596046448,
+                0.5
+            ],
+            "scale" : [
+                0.11100000143051147,
+                0.11100000143051147,
+                0.11100000143051147
+            ],
+            "translation" : [
+                39.1522331237793,
+                0,
+                69.64981079101562
+            ]
+        },
+        {
+            "mesh" : 18,
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.008",
+            "rotation" : [
+                0.5000001192092896,
+                -0.5,
+                0.5000000596046448,
+                0.5
+            ],
+            "scale" : [
+                0.11100000143051147,
+                0.11100000143051147,
+                0.11100000143051147
+            ],
+            "translation" : [
+                47.03010177612305,
+                0,
+                69.5380859375
+            ]
+        },
+        {
+            "mesh" : 4,
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.002",
+            "translation" : [
+                27.563690185546875,
+                4.062416076660156,
+                -77.57853698730469
+            ]
+        },
+        {
+            "mesh" : 4,
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.001",
+            "translation" : [
+                27.50498390197754,
+                4.062408447265625,
+                -39.16510772705078
+            ]
+        },
+        {
+            "mesh" : 19,
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.001",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ],
+            "scale" : [
+                0.11100000143051147,
+                0.11100000143051147,
+                0.11100000143051147
+            ],
+            "translation" : [
+                27.68148422241211,
+                0,
+                7.815088272094727
+            ]
+        },
+        {
+            "mesh" : 20,
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.008",
+            "translation" : [
+                27.50498390197754,
+                4.062408447265625,
+                -1.6347618103027344
+            ]
+        },
+        {
+            "mesh" : 21,
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.009",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ],
+            "scale" : [
+                0.11100000143051147,
+                0.11100000143051147,
+                0.11100000143051147
+            ],
+            "translation" : [
+                134.0595245361328,
+                0,
+                6.290746688842773
+            ]
+        },
+        {
+            "mesh" : 22,
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.010",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ],
+            "scale" : [
+                0.11100000143051147,
+                0.11100000143051147,
+                0.11100000143051147
+            ],
+            "translation" : [
+                134.0595245361328,
+                0,
+                -33.17860412597656
+            ]
+        },
+        {
+            "mesh" : 23,
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.009",
+            "translation" : [
+                134.20852661132812,
+                3.9482946395874023,
+                -68.33260345458984
+            ]
+        },
+        {
+            "mesh" : 24,
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.011",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ],
+            "scale" : [
+                0.11100000143051147,
+                0.11100000143051147,
+                0.11100000143051147
+            ],
+            "translation" : [
+                134.0595245361328,
+                0,
+                -60.44837188720703
+            ]
+        },
+        {
+            "mesh" : 23,
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.010",
+            "translation" : [
+                133.94174194335938,
+                4.062416076660156,
+                -41.572532653808594
+            ]
+        },
+        {
+            "mesh" : 23,
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.011",
+            "translation" : [
+                133.88302612304688,
+                4.062408447265625,
+                -3.1591033935546875
+            ]
+        },
+        {
+            "mesh" : 25,
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.012",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ],
+            "scale" : [
+                0.11100000143051147,
+                0.11100000143051147,
+                0.11100000143051147
+            ],
+            "translation" : [
+                134.0595245361328,
+                0,
+                43.82109069824219
+            ]
+        },
+        {
+            "mesh" : 26,
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.012",
+            "translation" : [
+                133.88302612304688,
+                4.062408447265625,
+                34.37124252319336
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "light",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.03369630128145218,
+                    0.03369630128145218,
+                    0.03369630128145218,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                1,
+                1,
+                1
+            ],
+            "name" : "emissive",
+            "pbrMetallicRoughness" : {}
+        },
+        {
+            "doubleSided" : true,
+            "name" : "default_material",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0
+                },
+                "metallicFactor" : 0,
+                "metallicRoughnessTexture" : {
+                    "index" : 1
+                }
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "defaultMat",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 2
+                },
+                "metallicFactor" : 0,
+                "metallicRoughnessTexture" : {
+                    "index" : 3
+                }
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "/mat/initialShadingGroup",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 4
+                },
+                "metallicFactor" : 0,
+                "metallicRoughnessTexture" : {
+                    "index" : 5
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "\u9525\u4f53.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 0,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 3,
+                    "material" : 0,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "\u9525\u4f53.010",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 1,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 7,
+                    "material" : 1,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 8,
+                        "NORMAL" : 9,
+                        "TEXCOORD_0" : 10
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 2,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 11,
+                    "material" : 2,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 12,
+                        "NORMAL" : 13,
+                        "TEXCOORD_0" : 14
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 3,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 11,
+                    "material" : 2,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.004",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 15,
+                        "NORMAL" : 16,
+                        "TEXCOORD_0" : 17
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 4,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 18,
+                    "material" : 3,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.003",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 19,
+                        "NORMAL" : 20,
+                        "TEXCOORD_0" : 21
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 5,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 11,
+                    "material" : 2,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_street__L_uh4ffdmga_LOD4",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 22,
+                        "NORMAL" : 23,
+                        "TEXCOORD_0" : 24
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 6,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 25,
+                    "material" : 4,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_street__L_uh4ffdmga_LOD4.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 26,
+                        "NORMAL" : 27,
+                        "TEXCOORD_0" : 28
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 7,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 25,
+                    "material" : 4,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_street__L_uh4ffdmga_LOD4.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 29,
+                        "NORMAL" : 30,
+                        "TEXCOORD_0" : 31
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 8,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 25,
+                    "material" : 4,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_street__L_uh4ffdmga_LOD4.003",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 32,
+                        "NORMAL" : 33,
+                        "TEXCOORD_0" : 34
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 9,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 25,
+                    "material" : 4,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.005",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 35,
+                        "NORMAL" : 36,
+                        "TEXCOORD_0" : 37
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 10,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 18,
+                    "material" : 3,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.004",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 38,
+                        "NORMAL" : 39,
+                        "TEXCOORD_0" : 40
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 11,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 11,
+                    "material" : 2,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.006",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 41,
+                        "NORMAL" : 42,
+                        "TEXCOORD_0" : 43
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 12,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 18,
+                    "material" : 3,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.005",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 44,
+                        "NORMAL" : 45,
+                        "TEXCOORD_0" : 46
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 13,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 11,
+                    "material" : 2,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.007",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 47,
+                        "NORMAL" : 48,
+                        "TEXCOORD_0" : 49
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 14,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 18,
+                    "material" : 3,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.006",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 50,
+                        "NORMAL" : 51,
+                        "TEXCOORD_0" : 52
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 15,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 11,
+                    "material" : 2,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.007",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 53,
+                        "NORMAL" : 54,
+                        "TEXCOORD_0" : 55
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 16,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 11,
+                    "material" : 2,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.008",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 56,
+                        "NORMAL" : 57,
+                        "TEXCOORD_0" : 58
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 17,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 18,
+                    "material" : 3,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.008",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 59,
+                        "NORMAL" : 60,
+                        "TEXCOORD_0" : 61
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 18,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 11,
+                    "material" : 2,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 62,
+                        "NORMAL" : 63,
+                        "TEXCOORD_0" : 64
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 19,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 11,
+                    "material" : 2,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 65,
+                        "NORMAL" : 66,
+                        "TEXCOORD_0" : 67
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 20,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 18,
+                    "material" : 3,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.009",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 68,
+                        "NORMAL" : 69,
+                        "TEXCOORD_0" : 70
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 21,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 11,
+                    "material" : 2,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.010",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 71,
+                        "NORMAL" : 72,
+                        "TEXCOORD_0" : 73
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 22,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 11,
+                    "material" : 2,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 74,
+                        "NORMAL" : 75,
+                        "TEXCOORD_0" : 76
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 23,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 18,
+                    "material" : 3,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.011",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 77,
+                        "NORMAL" : 78,
+                        "TEXCOORD_0" : 79
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 24,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 11,
+                    "material" : 2,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_props_storage_M_vh1hffc_LOD4.012",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 80,
+                        "NORMAL" : 81,
+                        "TEXCOORD_0" : 82
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 25,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 11,
+                    "material" : 2,
+                    "mode" : 4
+                }
+            ]
+        },
+        {
+            "name" : "Aset_industrial_storage_M_vhtibbe_LOD5.003",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 83,
+                        "NORMAL" : 84,
+                        "TEXCOORD_0" : 85
+                    },
+                    "extensions" : {
+                        "KHR_draco_mesh_compression" : {
+                            "bufferView" : 26,
+                            "attributes" : {
+                                "POSITION" : 0,
+                                "NORMAL" : 1,
+                                "TEXCOORD_0" : 2
+                            }
+                        }
+                    },
+                    "indices" : 18,
+                    "material" : 3,
+                    "mode" : 4
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
+        },
+        {
+            "sampler" : 0,
+            "source" : 3
+        },
+        {
+            "sampler" : 0,
+            "source" : 4
+        },
+        {
+            "sampler" : 0,
+            "source" : 5
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "vh1hffc_2K_Albedo",
+            "uri" : "vh1hffc_2K_Albedo.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "vh1hffc_2K_Roughness",
+            "uri" : "vh1hffc_2K_Roughness.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "vhtibbe_2K_Albedo",
+            "uri" : "vhtibbe_2K_Albedo.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "vhtibbe_2K_Roughness",
+            "uri" : "vhtibbe_2K_Roughness.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "uh4ffdmga_2K_Albedo",
+            "uri" : "uh4ffdmga_2K_Albedo.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "uh4ffdmga_2K_Roughness",
+            "uri" : "uh4ffdmga_2K_Roughness.jpg"
+        }
+    ],
+    "accessors" : [
+        {
+            "componentType" : 5126,
+            "count" : 1200,
+            "max" : [
+                84.92506408691406,
+                -19.141502380371094,
+                198.59999084472656
+            ],
+            "min" : [
+                -83.38386535644531,
+                -29.953533172607422,
+                -1
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1200,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1200,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5123,
+            "count" : 4320,
+            "type" : "SCALAR"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 480,
+            "max" : [
+                84.92506408691406,
+                -19.861621856689453,
+                198.59999084472656
+            ],
+            "min" : [
+                -83.38386535644531,
+                -29.953533172607422,
+                -1
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 480,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 480,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5123,
+            "count" : 1440,
+            "type" : "SCALAR"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "max" : [
+                57.65355682373047,
+                37.19158172607422,
+                0.7097695469856262
+            ],
+            "min" : [
+                -57.89493179321289,
+                -36.71644592285156,
+                -74.49674224853516
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5123,
+            "count" : 4497,
+            "type" : "SCALAR"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "max" : [
+                57.65355682373047,
+                37.19158172607422,
+                0.7097695469856262
+            ],
+            "min" : [
+                -57.89493179321289,
+                -36.71644592285156,
+                -74.49674224853516
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "max" : [
+                4.990577697753906,
+                4.062412261962891,
+                3.9282684326171875
+            ],
+            "min" : [
+                -4.990575790405273,
+                -4.062412261962891,
+                -3.9282684326171875
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5123,
+            "count" : 2400,
+            "type" : "SCALAR"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "max" : [
+                57.65355682373047,
+                37.19158172607422,
+                0.7097695469856262
+            ],
+            "min" : [
+                -57.89493179321289,
+                -36.71644592285156,
+                -74.49674224853516
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1382,
+            "max" : [
+                46.72603988647461,
+                26.90676498413086,
+                1.2845380306243896
+            ],
+            "min" : [
+                -46.61545944213867,
+                -26.911346435546875,
+                -158.52200317382812
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1382,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1382,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5123,
+            "count" : 6786,
+            "type" : "SCALAR"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1382,
+            "max" : [
+                46.72603988647461,
+                26.90676498413086,
+                1.2845380306243896
+            ],
+            "min" : [
+                -46.61545944213867,
+                -26.911346435546875,
+                -158.52200317382812
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1382,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1382,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1382,
+            "max" : [
+                46.72603988647461,
+                26.90676498413086,
+                1.2845380306243896
+            ],
+            "min" : [
+                -46.61545944213867,
+                -26.911346435546875,
+                -158.52200317382812
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1382,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1382,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1382,
+            "max" : [
+                46.72603988647461,
+                26.90676498413086,
+                1.2845380306243896
+            ],
+            "min" : [
+                -46.61545944213867,
+                -26.911346435546875,
+                -158.52200317382812
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1382,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1382,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "max" : [
+                45.2960205078125,
+                34.32212448120117,
+                1.0280858278274536
+            ],
+            "min" : [
+                -44.62427520751953,
+                -36.45753860473633,
+                -72.16851806640625
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "max" : [
+                57.65355682373047,
+                37.19158172607422,
+                0.7097695469856262
+            ],
+            "min" : [
+                -57.89493179321289,
+                -36.71644592285156,
+                -74.49674224853516
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "max" : [
+                45.2960205078125,
+                34.32212448120117,
+                1.0280858278274536
+            ],
+            "min" : [
+                -44.62427520751953,
+                -36.45753860473633,
+                -72.16851806640625
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "max" : [
+                57.65355682373047,
+                37.19158172607422,
+                0.7097695469856262
+            ],
+            "min" : [
+                -57.89493179321289,
+                -36.71644592285156,
+                -74.49674224853516
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "max" : [
+                45.2960205078125,
+                34.32212448120117,
+                1.0280858278274536
+            ],
+            "min" : [
+                -44.62427520751953,
+                -36.45753860473633,
+                -72.16851806640625
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "max" : [
+                57.65355682373047,
+                37.19158172607422,
+                0.7097695469856262
+            ],
+            "min" : [
+                -57.89493179321289,
+                -36.71644592285156,
+                -74.49674224853516
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "max" : [
+                57.65355682373047,
+                37.19158172607422,
+                0.7097695469856262
+            ],
+            "min" : [
+                -57.89493179321289,
+                -36.71644592285156,
+                -74.49674224853516
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "max" : [
+                45.2960205078125,
+                34.32212448120117,
+                1.0280858278274536
+            ],
+            "min" : [
+                -44.62427520751953,
+                -36.45753860473633,
+                -72.16851806640625
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "max" : [
+                57.65355682373047,
+                37.19158172607422,
+                0.7097695469856262
+            ],
+            "min" : [
+                -57.89493179321289,
+                -36.71644592285156,
+                -74.49674224853516
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "max" : [
+                57.65355682373047,
+                37.19158172607422,
+                0.7097695469856262
+            ],
+            "min" : [
+                -57.89493179321289,
+                -36.71644592285156,
+                -74.49674224853516
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "max" : [
+                4.990577697753906,
+                4.062412261962891,
+                3.9282684326171875
+            ],
+            "min" : [
+                -4.990575790405273,
+                -4.062412261962891,
+                -3.9282684326171875
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "max" : [
+                57.65355682373047,
+                37.19158172607422,
+                0.7097695469856262
+            ],
+            "min" : [
+                -57.89493179321289,
+                -36.71644592285156,
+                -74.49674224853516
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "max" : [
+                57.65355682373047,
+                37.19158172607422,
+                0.7097695469856262
+            ],
+            "min" : [
+                -57.89493179321289,
+                -36.71644592285156,
+                -74.49674224853516
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "max" : [
+                4.990577697753906,
+                4.062412261962891,
+                3.9282684326171875
+            ],
+            "min" : [
+                -4.990575790405273,
+                -4.062412261962891,
+                -3.9282684326171875
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "max" : [
+                57.65355682373047,
+                37.19158172607422,
+                0.7097695469856262
+            ],
+            "min" : [
+                -57.89493179321289,
+                -36.71644592285156,
+                -74.49674224853516
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "max" : [
+                57.65355682373047,
+                37.19158172607422,
+                0.7097695469856262
+            ],
+            "min" : [
+                -57.89493179321289,
+                -36.71644592285156,
+                -74.49674224853516
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 1254,
+            "type" : "VEC2"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "max" : [
+                4.990577697753906,
+                4.062412261962891,
+                3.9282684326171875
+            ],
+            "min" : [
+                -4.990575790405273,
+                -4.062412261962891,
+                -3.9282684326171875
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "type" : "VEC3"
+        },
+        {
+            "componentType" : 5126,
+            "count" : 928,
+            "type" : "VEC2"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 6141,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2148,
+            "byteOffset" : 6144
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12312,
+            "byteOffset" : 8292
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12312,
+            "byteOffset" : 20604
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9617,
+            "byteOffset" : 32916
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12312,
+            "byteOffset" : 42536
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 13111,
+            "byteOffset" : 54848
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 13111,
+            "byteOffset" : 67960
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 13111,
+            "byteOffset" : 81072
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 13111,
+            "byteOffset" : 94184
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9620,
+            "byteOffset" : 107296
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12312,
+            "byteOffset" : 116916
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9620,
+            "byteOffset" : 129228
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12312,
+            "byteOffset" : 138848
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9620,
+            "byteOffset" : 151160
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12312,
+            "byteOffset" : 160780
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12312,
+            "byteOffset" : 173092
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9620,
+            "byteOffset" : 185404
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12312,
+            "byteOffset" : 195024
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12312,
+            "byteOffset" : 207336
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9617,
+            "byteOffset" : 219648
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12312,
+            "byteOffset" : 229268
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12312,
+            "byteOffset" : 241580
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9617,
+            "byteOffset" : 253892
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12312,
+            "byteOffset" : 263512
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 12312,
+            "byteOffset" : 275824
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9617,
+            "byteOffset" : 288136
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 297756,
+            "uri" : "fj.bin"
+        }
+    ]
+}

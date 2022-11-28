@@ -20,6 +20,7 @@ import * as BABYLON from "@babylonjs/core";
 import "@babylonjs/loaders/glTF";
 import "@babylonjs/loaders/OBJ";
 import "./loaders/StepFileLoader";
+import "./loaders/hc3dFileLoader";
 import "@babylonjs/core/Debug/debugLayer";
 import "@babylonjs/inspector";
 import renderDXF from "./renderDXF";
@@ -117,6 +118,24 @@ console.log(12);
 //     zoomAll(s);
 //   }, 1000);
 // });
+SceneLoader.AppendAsync("/static/models/fujian/", "index.hc3d").then((s) => {
+  console.log("s.material: ", s.materials);
+  s.materials.forEach(
+    (m) => ((m as StandardMaterial).diffuseColor = Color3.White())
+  );
+  setTimeout(() => {
+    scene.skipFrustumClipping = true;
+  }, 1000);
+});
+
+
+// SceneLoader.AppendAsync("/static/models/xbot/", "index.hc3d")
+Promise.all([SceneLoader.AppendAsync("/static/models/111/", "index.hc3d")]).then(res=>{
+  setTimeout(() => {
+    scene.skipFrustumClipping = true;
+    zoomAll(scene);
+  }, 1000);
+})
 
 function render() {
   engine.runRenderLoop(() => {
