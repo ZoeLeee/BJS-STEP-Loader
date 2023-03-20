@@ -501,7 +501,7 @@ async function loadZip() {
     for (let i = 0; i < r.rootNodes.length; i++) {
       const node = r.rootNodes[i];
       if (node.name === "__root__") {
-        // node.position.x = i * 100;
+        node.position.z = i * 100;
       }
     }
   });
@@ -517,7 +517,7 @@ function loadGLTF() {
     for (let i = 0; i < r.rootNodes.length; i++) {
       const node = r.rootNodes[i];
       if (node.name === "__root__") {
-        // node.position.x = i * 100;
+        node.position.z = i * 100;
       }
     }
   });
