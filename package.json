@@ -33,6 +33,7 @@
     "esbuild": "^0.14.39",
     "express": "^4.17.2",
     "html-webpack-plugin": "^5.5.0",
+    "jszip": "^3.10.1",
     "opencascade.js": "2.0.0-beta.6e177a4",
     "webpack": "^5.67.0",
     "webpack-dev-middleware": "^5.3.0"

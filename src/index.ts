@@ -12,6 +12,7 @@ import {
   MeshBuilder,
   TransformNode,
   PointerEventTypes,
+  Effect,
 } from "@babylonjs/core";
 import { Helper } from "dxf";
 import DxfParser from "dxf-parser";
@@ -25,7 +26,69 @@ import "@babylonjs/core/Debug/debugLayer";
 import "@babylonjs/inspector";
 import renderDXF from "./renderDXF";
 
+import JSZip from 'jszip';
+
 // window["BABYLON"] = BABYLON;
+
+Effect.ShadersStore["fogFxFragmentShader"] = `
+    #ifdef GL_ES
+        precision highp float;
+    #endif
+
+    // Samplers
+    varying vec2 vUV;
+    uniform sampler2D textureSampler;
+	uniform sampler2D depthData;
+
+	uniform vec3 cameraPos;
+	uniform vec3 cameraDir;
+	
+	uniform vec2 uCameraDepths;
+	uniform vec2 resolution;
+	
+	uniform mat4 world;
+	uniform mat4 projection;
+	uniform mat4 iprojection;
+	uniform mat4 iview;
+
+    uniform float maxZ;
+		
+	vec3 ssToWorldPos(){	
+        float depthColor = texture2D(depthData, vUV).r;
+        vec4 ndc = vec4(
+                (vUV.x - 0.5) * 2.0,
+                (vUV.y - 0.5) * 2.0,
+                -projection[2].z + projection[3].z / (depthColor * maxZ),
+                1.0
+            );
+
+        vec4 worldSpaceCoord = iview * iprojection * ndc;
+
+        worldSpaceCoord /= worldSpaceCoord.w;
+
+        vec3 dir = normalize(cameraDir + worldSpaceCoord.xyz);
+        vec3 vectorToPixel = (dir * (depthColor * maxZ)) + cameraPos;
+        return worldSpaceCoord.xyz;//vectorToPixel;
+	}
+
+    void main(void) 
+    {
+        vec4 baseColor = texture2D(textureSampler, vUV);				
+        vec3 pixelPos = ssToWorldPos();
+
+        if (pixelPos.x > 0.
+            && pixelPos.x < 2.
+            && pixelPos.z > -3.
+            && pixelPos.z < 0.
+            && pixelPos.y > -1.
+            && pixelPos.y < 1.
+        ) {
+            baseColor = vec4(baseColor.x, 0., 0., 1.);
+        }
+
+        gl_FragColor = baseColor;  
+    }
+    `;
 
 const canvas = document.getElementById("canvas") as HTMLCanvasElement;
 
@@ -40,14 +103,14 @@ scene.createDefaultLight(true);
 scene.clearColor = Color3.Black().toColor4();
 const camera = new ArcRotateCamera(
   "123",
-  -(Math.PI / 2),
-  Math.PI / 2,
-  100,
+  -(Math.PI / 4),
+  Math.PI / 4,
+  1000,
   Vector3.Zero(),
   scene
 );
 camera.minZ = 0.1;
-camera.maxZ = 1e7;
+camera.maxZ = 10000;
 camera.attachControl();
 
 // new AxesViewer(scene, 10);
@@ -118,24 +181,89 @@ console.log(12);
 //     zoomAll(s);
 //   }, 1000);
 // });
-SceneLoader.AppendAsync("/static/models/fujian/", "index.hc3d").then((s) => {
-  console.log("s.material: ", s.materials);
-  s.materials.forEach(
-    (m) => ((m as StandardMaterial).diffuseColor = Color3.White())
-  );
-  setTimeout(() => {
-    scene.skipFrustumClipping = true;
-  }, 1000);
-});
+// SceneLoader.AppendAsync("https://hc3d-core.histron.cn/editor/file/read/b5ee964a-ea22-449a-964c-3d4be334dbe2/The_attachment_machine01-touming.gltf").then((s) => {
+//   console.log("s.material: ", s.materials);
+//   // s.materials.forEach(
+//   //   (m) => ((m as StandardMaterial).diffuseColor = Color3.White())
+//   // );
+//   // setTimeout(() => {
+//   //   scene.skipFrustumClipping = true;
+//   // }, 1000);
+//     setTimeout(() => {
+//     scene.skipFrustumClipping = true;
+//     zoomAll(scene);
+//   }, 1000);
+// });
+
+// SceneLoader.AppendAsync("/static/models/xbot/", "index.hc3d")
+// Promise.all([SceneLoader.AppendAsync("/static/models/111/", "index.hc3d")]).then(res=>{
+//   setTimeout(() => {
+//     scene.skipFrustumClipping = true;
+//     zoomAll(scene);
+//   }, 1000);
+// })
+
+// MeshBuilder.CreateGround("test", { width: 100, height: 100 });
+
+// var fog = new BABYLON.PostProcess(
+//   "Fog FX",
+//   "fogFx",
+//   [
+//     "cameraPos",
+//     "cameraDir",
+//     "uCameraDepths",
+//     "resolution",
+//     "world",
+//     "iprojection",
+//     "iview",
+//     "projection",
+//     "maxZ",
+//   ],
+//   ["depthData"],
+//   1,
+//   camera
+// );
+
+// var depth = scene.enableDepthRenderer(camera, false);
+
+// fog.onApply = function (effect) {
+//   effect.setVector2(
+//     "resolution",
+//     new BABYLON.Vector2(canvas.width, canvas.height)
+//   );
+//   effect.setVector2(
+//     "uCameraDepths",
+//     new BABYLON.Vector2(camera.minZ, camera.maxZ)
+//   );
+
+//   effect.setVector3("cameraPos", camera.position);
+//   effect.setVector3("cameraDir", camera.getForwardRay(0).direction);
+
+//   effect.setTexture("depthData", depth.getDepthMap());
+
+//   effect.setMatrix("world", camera.getWorldMatrix());
+//   // effect.setMatrix("projection", camera.getProjectionMatrix())
+//   // effect.setMatrix("view", camera.getViewMatrix())
+
+//   let iprojection = new BABYLON.Matrix();
+//   camera.getProjectionMatrix().invertToRef(iprojection);
+//   let iview = new BABYLON.Matrix();
+//   camera.getViewMatrix().invertToRef(iview);
+//   effect.setMatrix("iprojection", iprojection);
+//   effect.setMatrix("iview", iview);
+//   effect.setMatrix("projection", camera.getProjectionMatrix());
+
+//   effect.setFloat("maxZ", camera.maxZ);
+// };
 
 
 // SceneLoader.AppendAsync("/static/models/xbot/", "index.hc3d")
-Promise.all([SceneLoader.AppendAsync("/static/models/111/", "index.hc3d")]).then(res=>{
-  setTimeout(() => {
-    scene.skipFrustumClipping = true;
-    zoomAll(scene);
-  }, 1000);
-})
+// Promise.all([SceneLoader.AppendAsync("/static/models/111/", "index.hc3d")]).then(res=>{
+//   setTimeout(() => {
+//     scene.skipFrustumClipping = true;
+//     zoomAll(scene);
+//   }, 1000);
+// })
 
 function render() {
   engine.runRenderLoop(() => {
@@ -187,13 +315,13 @@ fileEl.addEventListener("change", (e) => {
       // console.timeEnd("0");
 
       // console.log("data: ", data);
-      engine.stopRenderLoop()
+      engine.stopRenderLoop();
       console.time("加载图像");
       await renderDXF(dxf, scene);
       console.timeEnd("加载图像");
       loading.style.display = "none";
-      render()
-      return
+      render();
+      return;
       setTimeout(() => {
         // zoomAll(scene)
       }, 1000);
