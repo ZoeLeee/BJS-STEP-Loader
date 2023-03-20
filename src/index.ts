@@ -13,6 +13,10 @@ import {
   TransformNode,
   PointerEventTypes,
   Effect,
+  FilesInput,
+  FilesInputStore,
+  Mesh,
+  FileToolsOptions,
 } from "@babylonjs/core";
 import { Helper } from "dxf";
 import DxfParser from "dxf-parser";
@@ -26,7 +30,14 @@ import "@babylonjs/core/Debug/debugLayer";
 import "@babylonjs/inspector";
 import renderDXF from "./renderDXF";
 
-import JSZip from 'jszip';
+import JSZip from "jszip";
+let t = Date.now();
+
+FileToolsOptions.PreprocessUrl = (url: string) => {
+  if(url.startsWith("data:")) return url
+  url += `?t=${t++}`;
+  return url;
+};
 
 // window["BABYLON"] = BABYLON;
 
@@ -256,7 +267,6 @@ console.log(12);
 //   effect.setFloat("maxZ", camera.maxZ);
 // };
 
-
 // SceneLoader.AppendAsync("/static/models/xbot/", "index.hc3d")
 // Promise.all([SceneLoader.AppendAsync("/static/models/111/", "index.hc3d")]).then(res=>{
 //   setTimeout(() => {
@@ -427,3 +437,88 @@ scene.onPointerObservable.add((info) => {
     console.log("info: ", info);
   }
 });
+
+const url=new URL(location.href)
+SceneLoader.ShowLoadingScreen = false;
+if(url.searchParams.get("type")==="zip"){
+  for (let i = 0; i < 10; i++) loadZip();
+}
+else{
+  for (let i = 0; i < 10; i++) loadGLTF();
+}
+btn.onclick = () => {
+  for (let i = 0; i < 10; i++) loadZip();
+};
+
+SceneLoader.ShowLoadingScreen = false;
+async function loadZip() {
+  t++;
+  const buffer = await fetch("/static/models/111.zip?t=" + t).then((res) =>
+    res.arrayBuffer()
+  );
+
+  const uint8Array = new Uint8Array(buffer);
+
+  // 加载 zip 包
+  const zip = await JSZip.loadAsync(uint8Array);
+
+  console.log("zip: ", zip);
+  // 从 zip 包中提取 glTF 模型文件
+  // zip.file('ship01.gltf').async('string').then((modelData) => {
+  //   // 使用 Babylon.js 的加载器加载 glTF 模型文件
+  //   BABYLON.SceneLoader.AppendAsync('', modelData, scene, (newMeshes) => {
+  //     console.log('newMeshes: ', newMeshes);
+  //     // 模型加载完成后的回调
+  //     // 可以在这里进行其他操作，如添加光源和相机等
+  //   }, null, null, '.gltf');
+  // });
+  const fileMap = {};
+
+  const pendings = [];
+
+  let gltf: File;
+
+  for (const file in zip.files) {
+    var entry = zip.file(file);
+
+    if (entry === null) continue;
+
+    pendings.push(
+      entry.async("blob").then((blob) => {
+        FilesInputStore.FilesToLoad[file.toLocaleLowerCase()] = new File(
+          [blob],
+          file
+        );
+        if (file.endsWith("gltf")) {
+          gltf = FilesInputStore.FilesToLoad[file.toLocaleLowerCase()];
+        }
+      })
+    );
+  }
+  await Promise.all(pendings);
+
+  BABYLON.SceneLoader.AppendAsync("file:", gltf, scene).then((r) => {
+    for (let i = 0; i < r.rootNodes.length; i++) {
+      const node = r.rootNodes[i];
+      if (node.name === "__root__") {
+        // node.position.x = i * 100;
+      }
+    }
+  });
+}
+
+function loadGLTF() {
+  t++;
+  BABYLON.SceneLoader.AppendAsync(
+    "/static/models/222/",
+    `C.gltf?t=${t}`,
+    scene
+  ).then((r) => {
+    for (let i = 0; i < r.rootNodes.length; i++) {
+      const node = r.rootNodes[i];
+      if (node.name === "__root__") {
+        // node.position.x = i * 100;
+      }
+    }
+  });
+}
