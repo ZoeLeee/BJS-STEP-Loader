@@ -160,16 +160,27 @@ function zoomAll(s = scene) {
 window["zoomall"] = zoomAll;
 
 // SceneLoader.AppendAsync("/static/models/", "02.STEP").then((scene) => {});
-// SceneLoader.AppendAsync("/static/models/", "Xbot.glb").then((s) => {
-//   console.log("s.material: ", s.materials);
-//   s.materials.forEach(
-//     (m) => ((m as StandardMaterial).diffuseColor = Color3.White())
-//   );
-//   setTimeout(() => {
-//     zoomAll();
-//   }, 1000);
-// });
-console.log(12);
+SceneLoader.AppendAsync("/static/models/", "Xbot.glb").then((s) => {
+  console.log("s.material: ", s.materials);
+  s.materials.forEach(
+    (m) => ((m as StandardMaterial).diffuseColor = Color3.White())
+  );
+  setTimeout(() => {
+    zoomAll();
+  }, 1000);
+});
+// SceneLoader.AppendAsync("/static/models/animate/", "robot_animate.gltf").then(
+//   (s) => {
+//     console.log("s.material: ", s.materials);
+//     s.materials.forEach(
+//       (m) => ((m as StandardMaterial).diffuseColor = Color3.White())
+//     );
+//     setTimeout(() => {
+//       zoomAll();
+//     }, 1000);
+//   }
+// );
+
 // SceneLoader.AppendAsync("http://127.0.0.1:5000/", "download/01.gltf").then(
 //   (s) => {
 //     console.log("s.material: ", s.materials);

@@ -28,6 +28,7 @@
     "babel-loader": "^8.2.3",
     "copy-webpack-plugin": "^10.2.2",
     "core-js": "^3.20.3",
+    "dwg2dxf": "^1.0.0",
     "dxf": "^4.6.3",
     "dxf-parser": "^1.1.2",
     "earcut": "^2.2.3",

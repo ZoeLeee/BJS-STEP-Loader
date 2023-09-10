@@ -71,15 +71,8 @@ const loadSTEPorIGES = async (openCascade, file, fileName) => {
 function visualizeDoc(oc, doc, fileName, fileType) {
   const justName = path.parse(fileName).name;
   // Export a GLB file (this will also perform the meshing)
-  const cafWriter = new oc.RWGltf_CafWriter(
-    new oc.TCollection_AsciiString_2(`./${justName}.gltf`),
-    false
-  );
-  cafWriter.Perform_2(
-    new oc.Handle_TDocStd_Document_2(doc),
-    new oc.TColStd_IndexedDataMapOfStringString_1(),
-    new oc.Message_ProgressRange_1()
-  );
+  const cafWriter = new oc.RWGltf_CafWriter(new oc.TCollection_AsciiString_2(`./${justName}.glb`), true);
+  cafWriter.Perform_2(new oc.Handle_TDocStd_Document_2(doc), new oc.TColStd_IndexedDataMapOfStringString_1(), new oc.Message_ProgressRange_1());
 
   // Out with the old, in with the new!
   console.log(fileName + " triangulated and added to the scene!");
@@ -87,8 +80,11 @@ function visualizeDoc(oc, doc, fileName, fileType) {
   // Remove the file when we're done (otherwise we run into errors on reupload)
   oc.FS.unlink(`/file.${fileType}`);
   // Read the GLB file from the virtual file system
-  const glbFile = oc.FS.readFile(`./${justName}.gltf`, { encoding: "binary" });
-  const fileObj = { file: glbFile, filename: `./${justName}.gltf` };
+  const glbFile = oc.FS.readFile(`./${justName}.glb`, { encoding: "binary" });
+  const fileObj = { file: glbFile, filename: fileName };
+
+  fs.writeFileSync(`./public/models/${justName}.glb`, glbFile);
+
   return fileObj;
 }
 
@@ -132,7 +128,6 @@ function visualizeShapes(oc, doc, fileName, fileType) {
 
   anAlgo.Perform_1(new oc.Message_ProgressRange_1());
 
-  console.log("hey");
   console.log(doc);
   // Return our visualized document
   return visualizeDoc(oc, doc, fileName, fileType);
@@ -145,10 +140,11 @@ const convertSTEPorIGES = async (file) => {
 };
 
 convertSTEPorIGES({
-  filename: "01.STeP",
-  path: "./public/models/01.STEP",
+  filename: "wolf.STEP",
+  path: "./public/models/wolf.STEP",
 }).then((res) => {
-  fs.writeFileSync(`./public/models/${res.filename}`, res.file);
+  // console.log("file: convert.mjs:151 ~ res:", res)
+  // fs.writeFileSync(`./public/models/${res.filename}`, res.file);
 });
 
 // export default convertSTEPorIGES;
